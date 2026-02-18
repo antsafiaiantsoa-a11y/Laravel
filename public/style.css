@@ -1,0 +1,160 @@
+/* Style global */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fdf2f2; /* rouge très clair en fond */
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Titres */
+h2 {
+  text-align: center;
+  color: #b71c1c; /* rouge foncé */
+  margin-bottom: 20px;
+}
+
+/* Messages de succès */
+.success-message {
+  background-color: #ffcdd2; /* rouge pastel */
+  color: #b71c1c;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 15px auto;
+  width: 80%;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Liens */
+a {
+  text-decoration: none;
+  color: #d32f2f; /* rouge vif */
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #9a0007;
+}
+
+/* Boutons */
+button {
+  background-color: #e53935; /* rouge principal */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #b71c1c; /* rouge foncé au survol */
+}
+
+/* Tableau */
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+table th {
+  background-color: #d32f2f; /* rouge vif */
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9d6d5; /* rouge très clair */
+}
+
+/* Formulaire */
+form {
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #b71c1c;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #d32f2f;
+  border-radius: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  table, form {
+    width: 100%;
+  }
+
+  table th, table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.pagination li {
+  margin: 0 4px;
+}
+
+.pagination li a, .pagination li span {
+  display: block;
+  padding: 6px 10px;
+  background: #f9d6d5; /* rouge clair */
+  color: #b71c1c;       /* rouge foncé */
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.pagination li a:hover {
+  background: #e53935; /* rouge vif */
+  color: white;
+}
+
+.pagination .active span {
+  background: #b71c1c; /* rouge foncé pour la page active */
+  color: white;
+}
