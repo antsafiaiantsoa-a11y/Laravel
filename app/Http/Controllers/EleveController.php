@@ -8,22 +8,22 @@ use App\Models\Eleve; // modèle Eloquent
 class EleveController extends Controller
 {
     // Afficher la liste des élèves avec recherche et pagination
-   public function index(Request $request)
-{
-    $query = Eleve::orderBy('id', 'desc');
+    public function index(Request $request)
+    {
+        $query = Eleve::orderBy('id', 'desc');
 
-    if ($request->has('search')) {
-        $search = $request->input('search');
-        $query->where(function($q) use ($search) {
-            $q->where('nom', 'like', "%{$search}%")
-              ->orWhere('prenom', 'like', "%{$search}%");
-        });
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function($q) use ($search) {
+                $q->where('nom', 'like', "%{$search}%")
+                  ->orWhere('prenom', 'like', "%{$search}%");
+            });
+        }
+
+        $eleves = $query->paginate(5); // 5 élèves par page
+
+        return view('welcome', compact('eleves'));
     }
-
-    $eleves = $query->paginate(5); // 5 élèves par page
-
-    return view('welcome', compact('eleves'));
-}
 
     // Formulaire d'ajout
     public function create()
@@ -39,9 +39,16 @@ class EleveController extends Controller
             'prenom' => 'required|string|max:255',
             'classe' => 'required|string|max:50',
             'annee_scolaire' => 'required|string|max:20',
+            
         ]);
 
-        Eleve::create($request->only(['nom', 'prenom', 'classe', 'annee_scolaire']));
+        Eleve::create($request->only([
+            'nom',
+            'prenom',
+            'classe',
+            'annee_scolaire',
+            
+        ]));
 
         return redirect('/')->with('success', 'Élève ajouté avec succès');
     }
@@ -61,10 +68,17 @@ class EleveController extends Controller
             'prenom' => 'required|string|max:255',
             'classe' => 'required|string|max:50',
             'annee_scolaire' => 'required|string|max:20',
+           
         ]);
 
         $eleve = Eleve::findOrFail($id);
-        $eleve->update($request->only(['nom', 'prenom', 'classe', 'annee_scolaire']));
+        $eleve->update($request->only([
+            'nom',
+            'prenom',
+            'classe',
+            'annee_scolaire',
+       
+        ]));
 
         return redirect('/')->with('success', 'Élève modifié avec succès');
     }
