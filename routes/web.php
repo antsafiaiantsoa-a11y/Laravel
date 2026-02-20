@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EleveController;
+use App\Http\Controllers\MatiereController;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-use App\Http\Controllers\EleveController;
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 
@@ -33,8 +29,7 @@ Route::get('/edit/{id}', [EleveController::class, 'edit']);
 Route::post('/edit/{id}', [EleveController::class, 'update']);
 Route::get('/delete/{id}', [EleveController::class, 'destroy']);
 
-use App\Http\Controllers\MatiereController;
-use App\Http\Controllers\NoteController;
+
 
 Route::resource('matieres', MatiereController::class);
 Route::resource('notes', NoteController::class);
